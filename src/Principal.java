@@ -21,6 +21,12 @@ public class Principal {
       System.out.printf("Nome: %s\t cpf: %s\n", eleitor.getNome(), eleitor.getCpf());
     }
 
+    votacao.votar("123", 123);
+    votacao.votar("123.456.789-10", 12345);
+    votacao.votar("123.456.789-10", 12345);
+    votacao.votar("123.456.789-00", 0);
+
+
   }
 
 }

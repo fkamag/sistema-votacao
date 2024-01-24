@@ -47,6 +47,36 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
   @Override
   public void votar(String cpfPessoaEleitora, int numeroPessoaCandidata) {
 
+    boolean isVoter = false;
+    for (PessoaEleitora eleitor : pessoasEleitoras) {
+      if (cpfPessoaEleitora.equals(eleitor.getCpf())) {
+        isVoter = true;
+      }
+    }
+    if (!isVoter) {
+      System.out.println("Eleitor não cadastrado");
+      return;
+    }
+
+    for (String cpfEleitor : cpfsComputados) {
+      if (cpfEleitor.equals(cpfPessoaEleitora)) {
+        System.out.println("Pessoa eleitora já votou!");
+        return;
+      }
+    }
+
+    for (PessoaCandidata pessoaCandidata : pessoasCandidatas) {
+      if (pessoaCandidata.getNumero() == numeroPessoaCandidata) {
+        pessoaCandidata.receberVoto();
+        System.out.println("Voto OK");
+        cpfsComputados.add(cpfPessoaEleitora);
+        return;
+      }
+    }
+
+    System.out.println("Voto Nulo");
+    cpfsComputados.add(cpfPessoaEleitora);
+
   }
 
   @Override
