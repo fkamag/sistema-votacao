@@ -94,6 +94,8 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
             votos, percentual);
       }
       System.out.println("Total de votos: " + totalVotosValidos);
+    } else {
+      System.out.println("É preciso ter pelo menos um voto para mostrar o resultado.");
     }
 
   }

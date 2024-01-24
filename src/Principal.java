@@ -29,7 +29,6 @@ public class Principal {
 
     votacao.mostrarResultado();
 
-
   }
 
 }
