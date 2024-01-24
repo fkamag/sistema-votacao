@@ -12,6 +12,15 @@ public class Principal {
       System.out.printf("Nome: %s\t número: %d\n", candidato.getNome(), candidato.getNumero());
     }
 
+    votacao.cadastrarPessoaEleitora("Maria", "123.456.789-10");
+    votacao.cadastrarPessoaEleitora("José", "123.456.789-10");
+    votacao.cadastrarPessoaEleitora("José", "123.456.789-00");
+
+    System.out.println("Eleitores");
+    for (PessoaEleitora eleitor : votacao.pessoasEleitoras) {
+      System.out.printf("Nome: %s\t cpf: %s\n", eleitor.getNome(), eleitor.getCpf());
+    }
+
   }
 
 }

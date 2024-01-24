@@ -38,6 +38,7 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
     }
     if (!isRepeated) {
       PessoaEleitora pessoaEleitora =  new PessoaEleitora(nome, cpf);
+      System.out.println("Pessoa eleitora cadastrada com sucesso!");
       pessoasEleitoras.add(pessoaEleitora);
     }
 
