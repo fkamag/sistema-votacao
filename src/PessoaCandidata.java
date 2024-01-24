@@ -24,4 +24,5 @@ public class PessoaCandidata extends Pessoa {
   public void receberVoto() {
     this.votos += 1;
   }
+
 }
