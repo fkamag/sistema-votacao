@@ -27,6 +27,9 @@ public class Principal {
     votacao.votar("123.456.789-00", 0);
 
 
+    votacao.mostrarResultado();
+
+
   }
 
 }

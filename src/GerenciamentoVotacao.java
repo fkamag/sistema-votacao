@@ -5,6 +5,7 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
   ArrayList<PessoaCandidata> pessoasCandidatas = new ArrayList<>();
   ArrayList<PessoaEleitora> pessoasEleitoras = new ArrayList<>();
   ArrayList<String> cpfsComputados = new ArrayList<>();
+  int votosNulos = 0;
 
   @Override
   public void cadastrarPessoaCandidata(String nome, int numero) {
@@ -76,11 +77,24 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
 
     System.out.println("Voto Nulo");
     cpfsComputados.add(cpfPessoaEleitora);
+    this.votosNulos += 1;
 
   }
 
   @Override
   public void mostrarResultado() {
+
+    if (!cpfsComputados.isEmpty()) {
+      int totalVotosValidos = cpfsComputados.size() - this.votosNulos;
+      for (PessoaCandidata pessoaCandidata : pessoasCandidatas) {
+        int votos = pessoaCandidata.getVotos();
+        double percentual = Math.round((double) votos / totalVotosValidos * 100);
+
+        System.out.printf("Nome: %s - %d votos ( %.0f%% )\n", pessoaCandidata.getNome(),
+            votos, percentual);
+      }
+      System.out.println("Total de votos: " + totalVotosValidos);
+    }
 
   }
 
